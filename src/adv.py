@@ -83,7 +83,7 @@ def handle_input(input):
         elif (inputs[0] in room_items):
             handle_retrieve_item(inputs[0])
         elif (inputs[0] == 'i' or inputs[0] == 'inventory'):
-            inventory = list(map(lambda x: x.name, new_player.inventory))
+            inventory = list(map(lambda item: item.name, new_player.inventory))
             inventory_list = ', '.join(inventory)
             print('You don\'t have any items') if len(inventory) == 0 else print(f'The following items are in your inventory: {inventory_list}')
         else:
@@ -124,7 +124,7 @@ def handle_drop_item(item):
 while (current_input != 'q'):
     print(new_player.current_room.name)
     print(new_player.current_room.description)
-    items = list(map(lambda x: x.name, new_player.current_room.items))
+    items = list(map(lambda item: item.name, new_player.current_room.items))
     item_list = ', '.join(items)
     item_output = f'You see the following items: {item_list}.' if item_list != '' else 'You do not see any items.'
     print(item_output)
